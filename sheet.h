@@ -25,10 +25,15 @@ public:
     Cell* GetConcreteCell(Position pos);
 
 private:
+    struct position_hash {
+        size_t operator()(const Position& p) const;
+    };
+
     void MaybeIncreaseSizeToIncludePosition(Position pos);
     void PrintCells(std::ostream& output,
                     const std::function<void(const CellInterface&)>& printCell) const;
     Size GetActualSize() const;
 
-    std::vector<std::vector<std::unique_ptr<Cell>>> cells_;
+    //std::vector<std::vector<std::unique_ptr<Cell>>> cells_;
+    std::unordered_map<Position, std::unique_ptr<CellInterface>, position_hash> cells_;
 };

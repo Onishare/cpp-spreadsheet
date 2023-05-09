@@ -1,5 +1,6 @@
 #pragma once
 
+#include <unordered_map>
 #include "common.h"
 #include "formula.h"
 
@@ -13,6 +14,8 @@ public:
 
     Value GetValue() const override;
     std::string GetText() const override;
+
+    std::vector<Position> GetRefCells() const override;
 
 private:
     class Impl;
