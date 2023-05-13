@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iosfwd>
 #include <memory>
 #include <stdexcept>
@@ -35,7 +37,7 @@ struct Size {
 class FormulaError {
 public:
     enum class Category {
-         Ref,    // ссылка на ячейку с некорректной позицией
+        Ref,    // ссылка на ячейку с некорректной позицией
         Value,  // ячейка не может быть трактована как число
         Div0,  // в результате вычисления возникло деление на ноль
     };
